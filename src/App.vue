@@ -57,6 +57,10 @@ export default {
         
         layer.addTo(map);
       });
+      map.on('draw:created', (e) => {
+        var layer = e.layer;
+        this.$emit('onCreated', layer.getLatLngs());
+      });
     })
   },
 
